@@ -1,6 +1,6 @@
 # Redux Movie Quotes
 
-> App used to practice with user authentication
+> Creating app to practice with user authentication
 
 ### Setup Instructions
 
