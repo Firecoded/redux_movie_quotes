@@ -11,13 +11,9 @@ class Nav extends Component {
 		}
 		return <button onClick = {signIn} className = 'btn blue darken-2'>Sign In</button>	
 	}
-	renderSecretList(){
-		const {auth, signIn, signOut} = this.props;
-		if(auth){
-			return (<li><Link to = '/secret-list'>Secret List</Link></li>)
-		}
-	}
+
 	render() {
+		
 		const {auth} = this.props;
 		return (
 			<nav style = {{padding: '0 10px'}}className = 'blue'>
@@ -30,7 +26,9 @@ class Nav extends Component {
 						<li>
 							<Link to = '/about'>About</Link>
 						</li>
-						{this.renderSecretList()}
+						<li>
+							<Link to = '/secret-list'>Secret List</Link>
+						</li>
 						<li>
 							<Link to = '/movie-quote'>Movie Quote</Link>
 						</li>
