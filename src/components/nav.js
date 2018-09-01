@@ -1,15 +1,36 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {signIn, signOut} from '../actions';
 
 class Nav extends Component {
-	renderAuthButtons(){
-		const {auth, signIn, signOut} = this.props;
+	renderLinks(){
+		const {auth, signOut} = this.props;
 		if(auth){
-			return <button onClick = {signOut} className = 'btn red accent-2'>Sign Out</button>
+			return(	
+					<Fragment>
+						<li>
+							<Link to = '/secret-list'>Secret List</Link>
+						</li>
+						<li>
+							<Link to = '/movie-quote'>Movie Quote</Link>
+						</li>
+						<li>
+							<button onClick = {signOut} className = 'btn red accent-2'>Sign Out</button>
+						</li>
+					</Fragment>
+				) 
 		}
-		return <button onClick = {signIn} className = 'btn blue darken-2'>Sign In</button>	
+		return (
+			<Fragment>
+				<li>
+					<Link to = 'sign-in' className = 'btn blue darken-2'>Sign In</Link>
+				</li>
+				<li>
+					<Link to = 'sign-up' className = 'btn blue darken-2'>Sign Up</Link>
+				</li>
+			</Fragment>		
+		)
 	}
 
 	render() {
@@ -26,18 +47,7 @@ class Nav extends Component {
 						<li>
 							<Link to = '/about'>About</Link>
 						</li>
-						<li>
-							<Link to = '/secret-list'>Secret List</Link>
-						</li>
-						<li>
-							<Link to = '/movie-quote'>Movie Quote</Link>
-						</li>
-						<li>
-							<Link to = '/sign-up'>Sign Up</Link>
-						</li>
-						<li>
-							{this.renderAuthButtons()}
-						</li>
+						{this.renderLinks()}
 					</ul>	
 				</div>
 			</nav>
